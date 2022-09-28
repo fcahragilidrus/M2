@@ -15,6 +15,10 @@
         background-color: white;
         border-radius: 50px;
     }
+    textarea{
+        width: 100px;
+        height: 50px;
+    }
 </style>
 <body>
     <div>
@@ -22,6 +26,7 @@
         <p id="title"></p>
         <p id="data"></p>
         <h3 class="card-text" id="count">Jumlah Kalimat : </h3>
+        <textarea id="textboox" onkeyup="charcountupdate(this.value)">asdsdws</textarea>
     </div>
 </body>
     <script>
@@ -41,6 +46,9 @@
             title.innerHTML = title.innerHTML + title_content
             data.innerHTML = data.innerHTML + data_content
             count.innerHTML = count.innerHTML + count_stences
-        
+        function charcountupdate(str) {
+            var lng = str.length;
+            document.getElementById("charcount").innerHTML = lng;
+        }
     </script>
 </html>
