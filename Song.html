@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(10, 10, 240);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+            padding: 10px;
+            width: 60%;
+            margin-top: 100px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        input {
+            margin-bottom: 20px;
+            width: 40%;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-align: center;
+            height: 22px;
+        }
+
+        #jumlah {
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            width: 33%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Punny Web</h1>
+        <h2>Westlife</h2>
+        <form action="#">
+            <input type="text" id="text" onkeyup="count()">
+        </form>
+        <h4><span id="lirik"></span></h4>
+        <p id="jumlah">Jumlah Karakter : <b id="total"></i></b>
+    </div>
+    <script>
+        let lirik_lagu = {
+            status: true, 
+            data : {
+                artist: "Westlife",
+                songTitle: "I Have A Dream",
+                songLyrics: "I have a dream, a song to sing\nTo help me cope with anything\nIf you see the wonder (wonder) of a fairy tale\nYou can take the future even if you fail"
+            }
+        }
+
+        let lirik = document.getElementById("lirik")
+        let jmlh = document.getElementById("jumlah")
+
+        let lirik_content = lirik_lagu.data.songLyrics
+        let enter = lirik_lagu.data.songLyrics.replaceAll("\n", "<br>")
+        let enter1 = lirik_lagu.data.songLyrics.replaceAll("\n", " ")
+        let counter = enter1.split(" ")
+
+        lirik.innerHTML = lirik.innerHTML + enter
+        jmlh.innerHTML = counter.length
+
+        function count() {
+            var total=document.getElementById("text").value;
+            total=total.replace(/\s/g, '');
+            document.getElementById("total").innerHTML=total.length;
+}
+
+    </script>
+</body>
+</html>
